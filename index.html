@@ -1,32 +1,138 @@
 <!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio นาย ณฐกร</title>
 
-<html>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: "Sarabun", sans-serif;
+        }
 
-    <head>
-    
-<title>Portfolio นาย ณฐกร</title>
+        body{
+            background: linear-gradient(135deg,#dd191d,#ff8c42);
+            color:white;
+        }
+
+        /* เมนู */
+        nav{
+            background: rgba(0,0,0,0.25);
+            padding:15px;
+            text-align:center;
+            position: sticky;
+            top:0;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        /* กล่องเนื้อหา */
+        .container{
+            width:80%;
+            max-width:900px;
+            margin:40px auto;
+            background:rgba(255,255,255,0.15);
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        img{
+            width:220px;
+            height:220px;
+            border-radius:50%;
+            border:6px solid white;
+            object-fit:cover;
+            margin-bottom:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            font-size:40px;
+            margin-bottom:10px;
+        }
+
+        h2{
+            color:#ffe600;
+            margin-bottom:20px;
+        }
+
+        p{
+            font-size:20px;
+            margin:10px 0;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 25px;
+            background:white;
+            color:#dd191d;
+            text-decoration:none;
+            border-radius:30px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#ffe600;
+            transform:scale(1.05);
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+            background:rgba(0,0,0,0.25);
+        }
+    </style>
 
 </head>
 
-<body bgcolor=#dd191d>
-<a href=profile.html>ประวัติส่วนตัว</a>
-<a href=education.html>ประวัติศึกษา</a>
-<a href=award.html>ผลงาน</a>
-<a href=contact.html>ช่างทางการติดต่อ</a>
-<img src=images/images.jfif>
+<body>
 
+    <nav>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="education.html">ประวัติการศึกษา</a>
+        <a href="award.html">ผลงาน</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
 
-<h1>นาย ณฐกร วิชัยชะนะ</h1>
+    <div class="container">
 
+        <img src="images/images.jfif" alt="รูปภาพ">
 
+        <h1>นาย ณฐกร วิชัยชะนะ</h1>
+        <h2>Portfolio</h2>
 
-<p>นักเรียนชั้นม.6/1</p>
+        <p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
+        <p>🏫 โรงเรียนพานทอง</p>
 
+        <a href="profile.html" class="btn">
+            ดูประวัติส่วนตัว
+        </a>
 
-<p>โรงเรียนพานทอง</p>
+    </div>
 
-
+    <footer>
+        © 2026 Portfolio | นาย ณฐกร วิชัยชะนะ
+    </footer>
 
 </body>
-
 </html>
