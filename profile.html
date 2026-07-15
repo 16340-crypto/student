@@ -35,26 +35,27 @@
             z-index: 1;
         }
 
-        /* --- ก้อนเมฆเคลื่อนที่ (Moving Clouds) --- */
-        .cloud {
+        /* --- ก้อนเมฆแบบเห็นชัดเจน (High Visibility Clouds) --- */
+        .cloud-svg {
             position: fixed;
-            background: rgba(255, 94, 126, 0.2);
-            border-radius: 100px;
-            filter: blur(8px);
+            fill: #420b17; /* สีเมฆเข้มอมม่วงแดงให้ตัดกับท้องฟ้า */
+            stroke: #ff5e7e; /* เพิ่มขอบสีชมพูให้เห็นชัดเจนขึ้น */
+            stroke-width: 1;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
             z-index: 2;
             pointer-events: none;
             animation: moveCloud linear infinite;
         }
         
-        /* สุ่มขนาด ตำแหน่ง และความเร็วของเมฆแต่ละก้อน */
-        .cloud1 { width: 250px; height: 40px; top: 120px; animation-duration: 35s; opacity: 0.3; }
-        .cloud2 { width: 350px; height: 50px; top: 220px; animation-duration: 50s; animation-delay: -10s; opacity: 0.25; }
-        .cloud3 { width: 200px; height: 35px; top: 80px;  animation-duration: 25s; animation-delay: -5s; opacity: 0.35; }
-        .cloud4 { width: 400px; height: 60px; top: 300px; animation-duration: 65s; animation-delay: -20s; opacity: 0.15; }
+        /* ปรับขนาด ตำแหน่ง และความเร็วให้เห็นชัดๆ */
+        .cloud1 { width: 220px; top: 70px;  animation-duration: 28s; opacity: 0.9; }
+        .cloud2 { width: 320px; top: 180px; animation-duration: 45s; animation-delay: -12s; opacity: 0.85; }
+        .cloud3 { width: 180px; top: 290px; animation-duration: 22s; animation-delay: -5s; opacity: 0.9; }
+        .cloud4 { width: 280px; top: 120px; animation-duration: 38s; animation-delay: -18s; opacity: 0.8; }
 
         @keyframes moveCloud {
-            0% { left: -450px; }
-            100% { left: 100vw; }
+            0% { transform: translateX(-350px); }
+            100% { transform: translateX(100vw); }
         }
 
         /* --- เงาปราสาทและบ้านเมือง (Kingdom Silhouette) --- */
@@ -66,7 +67,7 @@
             width: 100%;
             min-width: 1000px;
             height: auto;
-            opacity: 0.3;
+            opacity: 0.35;
             z-index: 3;
             pointer-events: none;
         }
@@ -230,16 +231,24 @@
 
 <body>
 
-<!-- พระจันทร์สีเลือด -->
 <div class="blood-moon"></div>
 
-<!-- ก้อนเมฆขยับเคลื่อนที่ -->
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
-<div class="cloud cloud4"></div>
+<svg class="cloud-svg cloud1" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 45a15 15 0 0 1 12-24 20 20 0 0 1 36-8 15 15 0 0 1 28 4 18 18 0 0 1 18 13 15 15 0 0 1-14 15H20a15 15 0 0 1-10-10z"/>
+</svg>
 
-<!-- อาณาจักร บ้านเมือง และปราสาท (SVG) -->
+<svg class="cloud-svg cloud2" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 45a15 15 0 0 1 12-24 20 20 0 0 1 36-8 15 15 0 0 1 28 4 18 18 0 0 1 18 13 15 15 0 0 1-14 15H20a15 15 0 0 1-10-10z"/>
+</svg>
+
+<svg class="cloud-svg cloud3" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 45a15 15 0 0 1 12-24 20 20 0 0 1 36-8 15 15 0 0 1 28 4 18 18 0 0 1 18 13 15 15 0 0 1-14 15H20a15 15 0 0 1-10-10z"/>
+</svg>
+
+<svg class="cloud-svg cloud4" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 45a15 15 0 0 1 12-24 20 20 0 0 1 36-8 15 15 0 0 1 28 4 18 18 0 0 1 18 13 15 15 0 0 1-14 15H20a15 15 0 0 1-10-10z"/>
+</svg>
+
 <svg class="kingdom-bg" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
     <path d="M0,250 L0,180 L30,160 L60,180 L60,250 
              M60,250 L60,150 L80,130 L100,150 L100,250 
@@ -259,7 +268,6 @@
     <circle cx="645" cy="150" r="3" fill="#ffe600" opacity="0.6"/>
 </svg>
 
-<!-- ต้นไม้ใบหญ้าเคลื่อนไหว -->
 <div class="nature-layer">
     <svg class="spooky-tree tree-left" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <path d="M50,120 L50,60 M50,85 L30,70 M30,70 L15,75 M50,75 L70,55 M70,55 L85,60 M50,60 L40,35 M40,35 L25,25 M40,35 L55,15" stroke="#1a0208" stroke-width="6" stroke-linecap="round"/>
@@ -311,7 +319,6 @@
 
 </div>
 
-<!-- พื้นดิน -->
 <div class="ground"></div>
 
 <footer>
