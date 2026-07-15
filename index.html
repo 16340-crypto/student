@@ -13,158 +13,152 @@
             font-family: "Sarabun", sans-serif;
         }
 
-        body {
+        body{
+            /* ธีมฮาโลวีน: ม่วงเข้ม ไล่ไป ส้ม */
+            background: linear-gradient(135deg, #1d0033, #4a154b, #ff7b00);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
-            background-color: #0b0200; /* กันเหนียวถ้าเน็ตช้า วิดีโอยังไม่โหลด */
+            position: relative;
         }
 
-        /* วิดีโอพื้นหลังเปลวไฟลุกโชน */
-        .video-background {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2;
-            object-fit: cover;
-            filter: brightness(0.6) contrast(1.2) saturate(1.3);
-        }
-
-        /* เลเยอร์ย้อมสีแสงไฟให้ดูมีมิติเงาเฉด */
-        .fire-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, rgba(221, 25, 29, 0.2) 0%, rgba(255, 140, 66, 0.1) 50%, rgba(0, 0, 0, 0.7) 100%);
-            z-index: -1;
+        /* --- CSS ค้างคาวบินแอนิเมชัน --- */
+        .bat {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.6;
             pointer-events: none;
+            animation: fly 12s linear infinite;
+        }
+        .bat1 { top: 15%; left: -50px; animation-delay: 0s; }
+        .bat2 { top: 45%; left: -50px; animation-delay: 4s; animation-duration: 15s; }
+        .bat3 { top: 75%; left: -50px; animation-delay: 2s; animation-duration: 10s; }
+
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                left: -50px;
+            }
+            50% {
+                transform: translate(50vw, -30px) scale(1.2) rotate(15deg);
+            }
+            100% {
+                transform: translate(110vw, 20px) scale(0.8) rotate(-10deg);
+                left: 100%;
+            }
         }
 
-        /* เมนูสไตล์ Cyber Glow */
+        /* เมนู */
         nav{
-            background: rgba(15, 5, 5, 0.75);
-            padding: 20px;
-            text-align: center;
+            background: rgba(29, 0, 51, 0.75);
+            padding:15px;
+            text-align:center;
             position: sticky;
-            top: 0;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #ff4500;
-            box-shadow: 0 5px 25px rgba(221, 25, 29, 0.4);
+            top:0;
             z-index: 100;
+            border-bottom: 2px solid #ff9900;
+            backdrop-filter: blur(5px);
         }
 
         nav a{
-            color: #ffcc00;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 19px;
-            font-weight: bold;
-            transition: 0.4s;
-            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+            color:#ffb703; /* สีเหลืองทองฮาโลวีน */
+            text-decoration:none;
+            margin:0 15px;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
         }
 
         nav a:hover{
-            color: #ffffff;
-            text-shadow: 0 0 20px #ff4500, 0 0 40px #ff8c42;
+            color:#ffffff;
+            text-shadow: 0 0 10px #ff7b00, 0 0 20px #ff7b00;
         }
 
-        /* กล่องเนื้อหากระจกสะท้อนแสงไฟ */
+        /* กล่องเนื้อหา */
         .container{
-            width: 85%;
-            max-width: 900px;
-            margin: 60px auto;
-            background: rgba(20, 5, 5, 0.55);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 0 40px rgba(221, 25, 29, 0.3), inset 0 0 20px rgba(255, 140, 66, 0.2);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
-            animation: containerGlow 4s ease-in-out infinite alternate;
+            width:80%;
+            max-width:900px;
+            margin:60px auto;
+            background: rgba(29, 0, 51, 0.6); /* กล่องสีม่วงเข้มโปร่งแสง */
+            padding:40px 30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow: 0 10px 30px rgba(255, 123, 0, 0.3); /* เรืองแสงสีส้ม */
+            border: 2px solid #ff7b00;
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 10;
         }
 
-        @keyframes containerGlow {
-            0% { box-shadow: 0 0 30px rgba(221, 25, 29, 0.3); }
-            100% { box-shadow: 0 0 50px rgba(255, 140, 66, 0.5); }
-        }
-
-        /* รูปโปรไฟล์ขอบไฟเหลืองส้ม */
         img{
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 4px solid #ff8c42;
-            object-fit: cover;
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px #dd191d;
-            transition: 0.5s;
-        }
-
-        img:hover {
-            transform: scale(1.05) rotate(3deg);
-            border-color: #ffe600;
-            box-shadow: 0 0 45px #ffe600;
+            width:220px;
+            height:220px;
+            border-radius:50%;
+            border:6px solid #ff9900; /* ขอบสีส้มเหลือง */
+            object-fit:cover;
+            margin-bottom:20px;
+            box-shadow:0 5px 25px rgba(255, 153, 0, 0.5);
         }
 
         h1{
-            font-size: 42px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #ffffff, #ffcc00, #ff4500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 69, 0, 0.3);
+            font-size:40px;
+            margin-bottom:10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #000;
         }
 
         h2{
-            color: #ff8c42;
-            margin-bottom: 25px;
-            font-size: 26px;
-            text-transform: uppercase;
+            color:#ffe600; /* สีเหลืองสว่าง */
+            margin-bottom:20px;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 140, 66, 0.5);
+            text-shadow: 0 0 8px rgba(255, 230, 0, 0.6);
         }
 
         p{
-            font-size: 21px;
-            margin: 12px 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-size:20px;
+            margin:12px 0;
+            text-shadow: 1px 1px 2px #000;
         }
 
-        /* ปุ่มกดเอฟเฟกต์ลาวาหลอมเหลว */
+        /* ปุ่มกด */
         .btn{
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 35px;
-            background: linear-gradient(45deg, #dd191d, #ff8c42);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            display:inline-block;
+            margin-top:25px;
+            padding:12px 30px;
+            background: #ff7b00; /* ปุ่มสีส้ม */
+            color: #1d0033; /* ตัวหนังสือสีม่วงเข้ม */
+            text-decoration:none;
+            border-radius:30px;
+            font-weight:bold;
             font-size: 18px;
-            box-shadow: 0 5px 20px rgba(221, 25, 29, 0.4), 0 0 0 2px rgba(255,255,255,0.1);
-            transition: 0.4s;
+            transition:0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .btn:hover{
-            background: linear-gradient(45deg, #ff8c42, #ffe600);
-            color: #000;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px #ffe600;
+            background:#ffe600; /* เปลี่ยนเป็นสีเหลืองตอนชี้ */
+            color: #1d0033;
+            transform:scale(1.08);
+            box-shadow: 0 0 20px #ffe600;
+        }
+
+        /* ฟักทองดุ๊กดิ๊ก */
+        .pumpkin-icon {
+            display: inline-block;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
         }
 
         footer{
-            text-align: center;
-            padding: 25px;
-            margin-top: 60px;
-            background: rgba(10, 2, 2, 0.85);
-            border-top: 1px solid rgba(255, 69, 0, 0.3);
+            text-align:center;
+            padding:25px;
+            margin-top:60px;
+            background: #1d0033;
+            border-top: 1px solid #4a154b;
             color: #aaa;
         }
     </style>
@@ -173,11 +167,9 @@
 
 <body>
 
-    <video autoplay loop muted playsinline class="video-background">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-bright-neon-flames-background-43407-large.mp4" type="video/mp4">
-    </video>
-    
-    <div class="fire-overlay"></div>
+    <div class="bat bat1">🦇</div>
+    <div class="bat bat2">🦇</div>
+    <div class="bat bat3">🦇</div>
 
     <nav>
         <a href="profile.html">ประวัติส่วนตัว</a>
@@ -191,13 +183,13 @@
         <img src="images/IMG_7334.JPG" alt="รูปภาพ">
 
         <h1>นาย ณฐกร วิชัยชะนะ</h1>
-        <h2>Portfolio</h2>
+        <h2><span class="pumpkin-icon">🎃</span> HALLOWEEN PORTFOLIO <span class="pumpkin-icon">🎃</span></h2>
 
-        <p>🔥 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
+        <p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
         <p>🏫 โรงเรียนพานทอง</p>
 
         <a href="profile.html" class="btn">
-            ดูประวัติส่วนตัว
+           💀 เจาะลึกประวัติส่วนตัว
         </a>
 
     </div>
