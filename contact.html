@@ -1,74 +1,266 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ช่องทางการติดต่อ</title>
+<title>ช่องทางการติดต่อ 🎄</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Sarabun,sans-serif;}
-body{background:linear-gradient(135deg,#dd191d,#ff8c42);color:white;}
-nav{background:rgba(0,0,0,.25);padding:15px;text-align:center;}
-nav a{color:white;text-decoration:none;margin:0 15px;font-weight:bold;}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Sarabun,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#075e2a,#c1121f);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* เมนู */
+nav{
+    background:rgba(0,0,0,.35);
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd700;
+}
+
+
+/* กล่องหลัก */
 .container{
-width:80%;
-max-width:900px;
-margin:40px auto;
-padding:30px;
-background:rgba(255,255,255,.15);
-border-radius:20px;
-text-align:center;
+    width:80%;
+    max-width:900px;
+    margin:50px auto;
+    padding:35px;
+    background:rgba(255,255,255,.15);
+    border:3px solid #ffd700;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 0 25px #ffd700;
 }
-h1{margin-bottom:20px;}
+
+
+h1{
+    color:#ffd700;
+    margin-bottom:25px;
+    text-shadow:0 0 10px red;
+}
+
+
 p{
-font-size:20px;
-margin:15px 0;
+    font-size:20px;
+    margin:15px;
 }
+
+
+/* ปุ่ม Social */
+.social{
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    background:white;
+    color:#c1121f;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+
+.social:hover{
+    background:#ffd700;
+    color:#075e2a;
+    transform:scale(1.1);
+}
+
+
+/* ปุ่มกลับ */
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:white;
-color:#dd191d;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 30px;
+    background:#ffd700;
+    color:#c1121f;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
 }
+
+
+/* Footer */
 footer{
-text-align:center;
-padding:20px;
-margin-top:40px;
-background:rgba(0,0,0,.25);
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:rgba(0,0,0,.35);
 }
+
+
+/* หิมะตก */
+.snow{
+    position:fixed;
+    top:-10px;
+    color:white;
+    font-size:20px;
+    user-select:none;
+    z-index:999;
+    animation:fall linear infinite;
+}
+
+
+@keyframes fall{
+
+0%{
+    transform:translateY(-10vh) rotate(0deg);
+}
+
+100%{
+    transform:translateY(110vh) rotate(360deg);
+}
+
+}
+
+
+/* ไฟกระพริบ */
+.light{
+    animation:blink 1s infinite alternate;
+}
+
+
+@keyframes blink{
+
+from{
+    text-shadow:0 0 5px yellow;
+}
+
+to{
+    text-shadow:0 0 25px white;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <nav>
-<a href="index.html">หน้าแรก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">ประวัติการศึกษา</a>
-<a href="award.html">ผลงาน</a>
-<a href="contact.html">ติดต่อ</a>
+
+<a href="index.html">🏠 หน้าแรก</a>
+<a href="profile.html">🎅 ประวัติส่วนตัว</a>
+<a href="education.html">📚 การศึกษา</a>
+<a href="award.html">🏆 ผลงาน</a>
+<a href="contact.html">🎄 ติดต่อ</a>
+
 </nav>
+
+
 
 <div class="container">
 
-<h1>ช่องทางการติดต่อ</h1>
 
-<p>📞 โทร :097-139-6030</p>
+<h1 class="light">
+🎄 ช่องทางการติดต่อ 🎄
+</h1>
+
+
+<p>📞 โทร : 097-139-6030</p>
+
 <p>📧 Email : junenatthakorn@gmail.com</p>
-<p>📘 Facebook : Nathakorn Wichaichana</p>
-<p>📷 Instagram : jxne.08</p>
 
-<a href="index.html" class="btn">กลับหน้าหลัก</a>
+
+<a class="social"
+href="https://www.facebook.com/"
+target="_blank">
+📘 Facebook : Nathakorn Wichaichana
+</a>
+
+
+<br>
+
+
+<a class="social"
+href="https://www.instagram.com/jxne.08/"
+target="_blank">
+📷 Instagram : jxne.08
+</a>
+
+
+<br>
+
+
+<a href="index.html" class="btn">
+🎁 กลับหน้าหลัก
+</a>
+
 
 </div>
 
+
+
 <footer>
-© 2026 Portfolio | นาย ณฐกร วิชัยชะนะ
+
+🎄 © 2026 Christmas Portfolio | นาย ณฐกร วิชัยชะนะ 🎅
+
 </footer>
+
+
+
+<script>
+
+/* สร้างหิมะ */
+function createSnow(){
+
+let snow=document.createElement("div");
+
+snow.className="snow";
+
+snow.innerHTML="❄";
+
+snow.style.left=Math.random()*100+"vw";
+
+snow.style.animationDuration=(3+Math.random()*6)+"s";
+
+snow.style.opacity=Math.random();
+
+snow.style.fontSize=(10+Math.random()*25)+"px";
+
+
+document.body.appendChild(snow);
+
+
+setTimeout(()=>{
+
+snow.remove();
+
+},9000);
+
+}
+
+
+setInterval(createSnow,120);
+
+
+</script>
+
 
 </body>
 </html>
+```
