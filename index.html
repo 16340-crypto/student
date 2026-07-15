@@ -14,7 +14,6 @@
         }
 
         body{
-            /* ธีมฮาโลวีน: ม่วงเข้ม ไล่ไป ส้ม */
             background: linear-gradient(135deg, #120024, #3a0d3c, #cc5200);
             color: white;
             min-height: 100vh;
@@ -22,46 +21,72 @@
             position: relative;
         }
 
-        /* --- ปราสาทฮาโลวีน (SVG กราฟิกสีดำสนิทแฝงความลึกลับ) --- */
+        /* --- ปราสาทฮาโลวีน (ย้ายมาฝั่งซ้าย ไม่โดนบัง) --- */
         .castle-bg {
             position: fixed;
-            bottom: 80px; /* อยู่เหนือพื้นดินเล็กน้อย */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 800px;
+            bottom: 75px; 
+            left: 2%; /* ย้ายมาฝั่งซ้าย */
+            width: 35%;
+            max-width: 400px;
+            min-width: 250px;
             height: auto;
-            opacity: 0.25; /* ปรับความโปร่งแสงไม่ให้แย่งซีนเนื้อหา */
-            z-index: 1;
+            opacity: 0.4; /* เพิ่มความเข้มขึ้นเล็กน้อยเพื่อให้เห็นชัด */
+            z-index: 3;
             pointer-events: none;
         }
 
-        /* --- พื้นดินสีน้ำตาลอมม่วง (Brown-Purple Ground) --- */
+        /* --- เงาต้นไม้ฮาโลวีน (Spooky Trees) --- */
+        .tree {
+            position: fixed;
+            bottom: 80px;
+            height: auto;
+            opacity: 0.35;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .tree-left {
+            left: 25%;
+            width: 150px;
+        }
+        .tree-right1 {
+            right: 5%;
+            width: 220px;
+        }
+        .tree-right2 {
+            right: 22%;
+            width: 130px;
+            bottom: 85px;
+            opacity: 0.25;
+        }
+
+        /* --- พื้นดินสีน้ำตาลอมม่วง --- */
         .ground {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 100px;
-            /* สีน้ำตาลช็อกโกแลตผสมม่วงเข้ม */
             background: linear-gradient(to top, #2b1820, #422835);
             border-top: 4px solid #1a0f14;
             box-shadow: 0 -10px 20px rgba(0,0,0,0.5);
-            z-index: 2;
+            z-index: 4;
         }
 
-        /* --- ค้างคาวบินแอนิเมชัน --- */
+        /* --- ค้างคาวบินแอนิเมชัน (เพิ่มเป็น 6 ตัว) --- */
         .bat {
             position: absolute;
-            font-size: 26px;
             opacity: 0.6;
             pointer-events: none;
             animation: fly 14s linear infinite;
             z-index: 5;
         }
-        .bat1 { top: 10%; left: -50px; animation-delay: 0s; }
-        .bat2 { top: 35%; left: -50px; animation-delay: 5s; animation-duration: 18s; }
-        .bat3 { top: 60%; left: -50px; animation-delay: 2s; animation-duration: 12s; }
+        /* ปรับขนาดและเวลาบินให้เหลื่อมกันดูเป็นธรรมชาติ */
+        .bat1 { font-size: 24px; top: 8%; left: -50px; animation-delay: 0s; animation-duration: 14s; }
+        .bat2 { font-size: 30px; top: 25%; left: -50px; animation-delay: 4s; animation-duration: 18s; }
+        .bat3 { font-size: 20px; top: 45%; left: -50px; animation-delay: 1s; animation-duration: 11s; }
+        .bat4 { font-size: 28px; top: 60%; left: -50px; animation-delay: 6s; animation-duration: 16s; }
+        .bat5 { font-size: 22px; top: 15%; left: -50px; animation-delay: 8s; animation-duration: 13s; }
+        .bat6 { font-size: 26px; top: 75%; left: -50px; animation-delay: 3s; animation-duration: 15s; }
 
         @keyframes fly {
             0% {
@@ -69,10 +94,10 @@
                 left: -50px;
             }
             50% {
-                transform: translate(50vw, -40px) scale(1.3) rotate(20deg);
+                transform: translate(50vw, -40px) scale(1.2) rotate(15deg);
             }
             100% {
-                transform: translate(110vw, 10px) scale(0.7) rotate(-15deg);
+                transform: translate(110vw, 20px) scale(0.8) rotate(-10deg);
                 left: 100%;
             }
         }
@@ -90,7 +115,7 @@
         }
 
         nav a{
-            color:#ffb703; /* สีเหลืองฮาโลวีน */
+            color:#ffb703; 
             text-decoration:none;
             margin:0 15px;
             font-size:18px;
@@ -106,9 +131,9 @@
         /* กล่องเนื้อหา */
         .container{
             width:80%;
-            max-width:900px;
-            margin:50px auto 140px auto; /* เพิ่ม margin ด้านล่างเพื่อไม่ให้บังพื้นดิน */
-            background: rgba(18, 0, 36, 0.7); /* กล่องม่วงเข้มโปร่งแสง */
+            max-width:650px; /* ปรับให้แคบลงเล็กน้อยเพื่อให้เห็นองค์ประกอบด้านข้างชัดขึ้น */
+            margin:50px auto 140px auto; 
+            background: rgba(18, 0, 36, 0.75); 
             padding:40px 30px;
             border-radius:20px;
             text-align:center;
@@ -137,7 +162,7 @@
         }
 
         h2{
-            color:#ffe600; /* สีเหลือง */
+            color:#ffe600; 
             margin-bottom:20px;
             letter-spacing: 2px;
             text-shadow: 0 0 8px rgba(255, 230, 0, 0.6);
@@ -154,7 +179,7 @@
             display:inline-block;
             margin-top:25px;
             padding:12px 30px;
-            background: #ff7b00; /* สีส้มหลัก */
+            background: #ff7b00; 
             color: #120024;
             text-decoration:none;
             border-radius:30px;
@@ -165,13 +190,12 @@
         }
 
         .btn:hover{
-            background:#ffe600; /* สีเหลืองเวลากดเลือก */
+            background:#ffe600; 
             color: #120024;
             transform:scale(1.08);
             box-shadow: 0 0 20px #ffe600;
         }
 
-        /* ฟักทองดุ๊กดิ๊ก */
         .pumpkin-icon {
             display: inline-block;
             animation: bounce 2s infinite ease-in-out;
@@ -187,7 +211,7 @@
             padding:20px;
             position: relative;
             z-index: 20;
-            background: #2b1820; /* ให้กลืนไปกับพื้นดินน้ำตาลม่วง */
+            background: #2b1820; 
             color: #b5a2ad;
             font-size: 14px;
         }
@@ -200,6 +224,9 @@
     <div class="bat bat1">🦇</div>
     <div class="bat bat2">🦇</div>
     <div class="bat bat3">🦇</div>
+    <div class="bat bat4">🦇</div>
+    <div class="bat bat5">🦇</div>
+    <div class="bat bat6">🦇</div>
 
     <svg class="castle-bg" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
         <path d="M50,300 L50,200 L70,200 L70,170 L90,170 L90,200 L110,200 L110,300 
@@ -207,7 +234,23 @@
                  M150,300 L150,100 L170,100 L170,70 L200,40 L230,70 L230,100 L250,100 L250,300 
                  M250,300 L250,130 L280,90 L310,130 L310,300
                  M310,300 L310,180 L330,180 L330,150 L350,150 L350,180 L370,180 L370,300" fill="#090012"/>
-        <path d="M185,150 L215,150 L215,200 L185,200 Z" fill="#ffe600" opacity="0.4"/> </svg>
+        <path d="M185,150 L215,150 L215,200 L185,200 Z" fill="#ffe600" opacity="0.5"/> 
+    </svg>
+
+    <svg class="tree tree-left" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,150 L50,80 M50,110 L30,90 M30,90 L20,95 M30,90 L35,75 M50,95 L70,75 M70,75 L80,80 M70,75 L65,60 M50,80 L45,50 M45,50 L35,40 M45,50 L55,35" 
+              stroke="#090012" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </svg>
+
+    <svg class="tree tree-right1" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,150 L50,70 M50,100 L25,80 M25,80 L10,85 M25,80 L30,60 M50,85 L75,65 M75,65 L90,70 M75,65 L70,45 M50,70 L40,40 M40,40 L25,30 M40,40 L55,20" 
+              stroke="#06000c" stroke-width="7" stroke-linecap="round" fill="none"/>
+    </svg>
+
+    <svg class="tree tree-right2" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,150 L50,80 M50,110 L35,95 M50,90 L65,75 M50,80 L45,55" 
+              stroke="#06000c" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </svg>
 
     <nav>
         <a href="profile.html">ประวัติส่วนตัว</a>
@@ -223,7 +266,7 @@
         <h1>นาย ณฐกร วิชัยชะนะ</h1>
         <h2><span class="pumpkin-icon">🎃</span> HALLOWEEN PORTFOLIO <span class="pumpkin-icon">🎃</span></h2>
 
-        <p>🎓 นักเรียนชั้นมัธยมศึกษาปีที่ 6/1</p>
+        <p>🎓 นักเรียนชั้นมัยมศึกษาปีที่ 6/1</p>
         <p>🏫 โรงเรียนพานทอง</p>
 
         <a href="profile.html" class="btn">
