@@ -35,6 +35,28 @@
             z-index: 1;
         }
 
+        /* --- ก้อนเมฆเคลื่อนที่ (Moving Clouds) --- */
+        .cloud {
+            position: fixed;
+            background: rgba(255, 94, 126, 0.2);
+            border-radius: 100px;
+            filter: blur(8px);
+            z-index: 2;
+            pointer-events: none;
+            animation: moveCloud linear infinite;
+        }
+        
+        /* สุ่มขนาด ตำแหน่ง และความเร็วของเมฆแต่ละก้อน */
+        .cloud1 { width: 250px; height: 40px; top: 120px; animation-duration: 35s; opacity: 0.3; }
+        .cloud2 { width: 350px; height: 50px; top: 220px; animation-duration: 50s; animation-delay: -10s; opacity: 0.25; }
+        .cloud3 { width: 200px; height: 35px; top: 80px;  animation-duration: 25s; animation-delay: -5s; opacity: 0.35; }
+        .cloud4 { width: 400px; height: 60px; top: 300px; animation-duration: 65s; animation-delay: -20s; opacity: 0.15; }
+
+        @keyframes moveCloud {
+            0% { left: -450px; }
+            100% { left: 100vw; }
+        }
+
         /* --- เงาปราสาทและบ้านเมือง (Kingdom Silhouette) --- */
         .kingdom-bg {
             position: fixed;
@@ -45,17 +67,17 @@
             min-width: 1000px;
             height: auto;
             opacity: 0.3;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
         }
 
-        /* --- ต้นไม้ใบหญ้าเคลื่อนไหว (Swaying Trees & Grass) --- */
+        /* --- ต้นไม้ใบหญ้าเคลื่อนไหว --- */
         .nature-layer {
             position: fixed;
             bottom: 75px;
             width: 100%;
             height: auto;
-            z-index: 3;
+            z-index: 4;
             pointer-events: none;
         }
         
@@ -94,7 +116,7 @@
             background: linear-gradient(to top, #100105, #24050d);
             border-top: 3px solid #420612;
             box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
-            z-index: 4;
+            z-index: 5;
         }
 
         /* เมนู */
@@ -110,7 +132,7 @@
         }
 
         nav a{
-            color: #ffb7d5; /* สีชมพูอ่อนพาสเทล */
+            color: #ffb7d5; 
             text-decoration:none;
             margin:0 15px;
             font-size:18px;
@@ -119,7 +141,7 @@
         }
 
         nav a:hover{
-            color: #ffe600; /* ไฮไลท์สีเหลืองทอง */
+            color: #ffe600; 
             text-shadow: 0 0 10px #ff3344;
         }
 
@@ -128,7 +150,7 @@
             width:85%;
             max-width:700px;
             margin:50px auto 140px auto;
-            background: rgba(26, 2, 8, 0.75); /* ปรับพื้นหลังกล่องให้เข้ากับธีมเข้ม */
+            background: rgba(26, 2, 8, 0.75); 
             padding:35px;
             border-radius:20px;
             text-align:center;
@@ -208,8 +230,16 @@
 
 <body>
 
+<!-- พระจันทร์สีเลือด -->
 <div class="blood-moon"></div>
 
+<!-- ก้อนเมฆขยับเคลื่อนที่ -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+<div class="cloud cloud4"></div>
+
+<!-- อาณาจักร บ้านเมือง และปราสาท (SVG) -->
 <svg class="kingdom-bg" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
     <path d="M0,250 L0,180 L30,160 L60,180 L60,250 
              M60,250 L60,150 L80,130 L100,150 L100,250 
@@ -229,6 +259,7 @@
     <circle cx="645" cy="150" r="3" fill="#ffe600" opacity="0.6"/>
 </svg>
 
+<!-- ต้นไม้ใบหญ้าเคลื่อนไหว -->
 <div class="nature-layer">
     <svg class="spooky-tree tree-left" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <path d="M50,120 L50,60 M50,85 L30,70 M30,70 L15,75 M50,75 L70,55 M70,55 L85,60 M50,60 L40,35 M40,35 L25,25 M40,35 L55,15" stroke="#1a0208" stroke-width="6" stroke-linecap="round"/>
@@ -280,6 +311,7 @@
 
 </div>
 
+<!-- พื้นดิน -->
 <div class="ground"></div>
 
 <footer>
