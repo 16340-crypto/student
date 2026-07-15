@@ -14,14 +14,47 @@
 }
 
 body{
-    background:linear-gradient(135deg,#dd191d,#ff8c42);
+    /* ท้องฟ้าค่ำคืน ไล่สีจากน้ำเงินเข้ม ไปจนถึงอมชมพูอ่อนที่ขอบฟ้า */
+    background: linear-gradient(to bottom, #050515 0%, #0b112c 40%, #1e1b4b 70%, #4a2840 90%, #ffccd5 100%);
     color:white;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 120px; /* เว้นที่ให้หญ้าด้านล่าง */
+}
+
+/* เอฟเฟกต์แสงเหนือ (Aurora) สีเขียวนีออน เหลือง ชมพู */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(57, 255, 20, 0.25) 0%, transparent 50%), /* เขียวนีออน */
+        radial-gradient(circle at 70% 30%, rgba(255, 0, 127, 0.2) 0%, transparent 55%),  /* ชมพู */
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 0, 0.15) 0%, transparent 45%); /* เหลืองนีออน */
+    filter: blur(40px);
+    z-index: 0;
+    pointer-events: none;
+    animation: auroraMove 15s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+    0% { opacity: 0.7; transform: translateY(0) scale(1); }
+    50% { opacity: 1; transform: translateY(-10px) scale(1.05); }
+    100% { opacity: 0.8; transform: translateY(5px) scale(0.95); }
 }
 
 nav{
-    background:rgba(0,0,0,.25);
+    background: rgba(11, 17, 44, 0.6);
+    backdrop-filter: blur(10px);
     padding:15px;
     text-align:center;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav a{
@@ -30,33 +63,52 @@ nav a{
     margin:0 15px;
     font-size:18px;
     font-weight:bold;
+    transition: 0.3s;
 }
 
 nav a:hover{
-    color:yellow;
+    color: #39ff14; /* เขียวนีออน */
+    text-shadow: 0 0 10px #39ff14;
 }
 
 .container{
     width:90%;
     max-width:900px;
     margin:40px auto;
+    position: relative;
+    z-index: 5;
 }
 
 h1{
     text-align:center;
     margin-bottom:30px;
-    color:#ffe600;
+    color:#fffb00; /* สีเหลืองสว่าง */
+    text-shadow: 0 0 15px rgba(255, 251, 0, 0.6);
 }
 
+/* ปรับโรงเรียนให้เป็นแท็ก <a> ที่คลุมทั้งกล่อง */
 .school{
     display:flex;
     align-items:center;
     gap:20px;
-    background:rgba(255,255,255,.15);
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
     padding:20px;
     border-radius:20px;
     margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
+    box-shadow:0 5px 25px rgba(0,0,0,0.4);
+    text-decoration: none; /* ลบเส้นใต้ของลิงก์ */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* เอฟเฟกต์ตอนชี้ที่กล่องโรงเรียน */
+.school:hover{
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #39ff14; /* ขอบเขียวนีออนตอน hover */
+    box-shadow: 0 10px 30px rgba(57, 255, 20, 0.2);
 }
 
 .school img{
@@ -66,11 +118,20 @@ h1{
     background:white;
     padding:8px;
     object-fit:contain;
+    transition: 0.5s;
+}
+
+.school:hover img{
+    transform: rotate(360deg); /* หมุนโลโก้เก๋ๆ ตอน hover */
 }
 
 .school h2{
-    color:#ffe600;
+    color:#fffb00;
     margin-bottom:10px;
+    transition: 0.3s;
+}
+.school:hover h2{
+    color: #39ff14; /* เปลี่ยนหัวข้อเป็นเขียวนีออนตอน hover */
 }
 
 .school p{
@@ -82,18 +143,60 @@ h1{
     display:inline-block;
     margin-top:20px;
     padding:12px 25px;
-    background:white;
-    color:#dd191d;
+    background: #ff007f; /* ปุ่มสีชมพูสุดชิค */
+    color: white;
     text-decoration:none;
     border-radius:30px;
     font-weight:bold;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: #39ff14;
+    color: #050515;
+    box-shadow: 0 4px 20px #39ff14;
+    transform: translateY(-2px);
+}
+
+/* พื้นดินและเงาหญ้าเคลื่อนไหว */
+.landscape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: #040610; /* พื้นดินสีเข้มเกือบดำ */
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* สร้างเงาหญ้าด้วย SVG ผสมการเคลื่อนไหว */
+.grass-layer {
+    position: absolute;
+    bottom: 95px;
+    left: 0;
+    width: 200%;
+    height: 40px;
+    background-image: repeat;
+    /* ใช้ SVG สร้างโครงสร้างยอดหญ้า */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,60 L20,90 L40,40 L60,85 L80,50 L100,95 L120,30 L140,80 L160,55 L180,90 L200,45 L220,85 L240,40 L260,95 L280,35 L300,90 L320,50 L340,85 L360,40 L380,95 L400,30 L420,80 L440,55 L460,90 L480,45 L500,85 L520,40 L540,95 L560,35 L580,90 L600,50 L620,85 L640,40 L660,95 L680,30 L700,80 L720,55 L740,90 L760,45 L780,85 L800,40 L820,95 L840,35 L860,90 L880,50 L900,85 L920,40 L940,95 L960,30 L980,80 L1000,55 L1020,90 L1040,45 L1060,85 L1080,40 L1100,95 L1120,35 L1140,90 L1160,50 L1180,85 L1200,40 L1200,120 Z" fill="%23040610"/></svg>');
+    background-size: 50% 100%;
+    animation: grassSway 6s ease-in-out infinite alternate;
+}
+
+@keyframes grassSway {
+    0% { transform: translateX(0) skewX(-2deg); }
+    100% { transform: translateX(-20px) skewX(3deg); }
 }
 
 footer{
     text-align:center;
-    padding:20px;
-    margin-top:40px;
-    background:rgba(0,0,0,.25);
+    padding:25px;
+    position: relative;
+    z-index: 10;
+    background: rgba(4, 6, 16, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 </style>
 
@@ -113,37 +216,41 @@ footer{
 
 <h1>ประวัติการศึกษา</h1>
 
-<div class="school">
+<a href="https://www.anubanphanat.ac.th" target="_blank" class="school">
 <img src="images/anuban.png" alt="โลโก้โรงเรียนอนุบาลพนัสศึกษาลัย">
 <div>
 <h2>🎓 ระดับประถมศึกษา</h2>
 <p><strong>โรงเรียนอนุบาลพนัสศึกษาลัย</strong></p>
 <p>สำเร็จการศึกษาระดับประถมศึกษา</p>
 </div>
-</div>
+</a>
 
-<div class="school">
+<a href="https://www.wattananoosart.ac.th" target="_blank" class="school">
 <img src="images/wattana.png" alt="โลโก้โรงเรียนวัฒนานุศาสน์">
 <div>
 <h2>🎓 ระดับมัธยมศึกษาตอนต้น</h2>
 <p><strong>โรงเรียนวัฒนานุศาสน์</strong></p>
 <p>สำเร็จการศึกษาระดับมัธยมศึกษาตอนต้น</p>
 </div>
-</div>
+</a>
 
-<div class="school">
+<a href="https://www.phanthong.ac.th" target="_blank" class="school">
 <img src="images/phanthong.png" alt="โลโก้โรงเรียนพานทอง">
 <div>
 <h2>🎓 ระดับมัธยมศึกษาตอนปลาย</h2>
 <p><strong>โรงเรียนพานทอง (ต้นสน)</strong></p>
 <p>กำลังศึกษาชั้นมัธยมศึกษาปีที่ 6/1</p>
 </div>
-</div>
+</a>
 
-<div style="text-align:center;">
+<div style="text-align:center; margin-bottom: 40px;">
 <a href="index.html" class="btn">🏠 กลับหน้าหลัก</a>
 </div>
 
+</div>
+
+<div class="landscape">
+    <div class="grass-layer"></div>
 </div>
 
 <footer>
