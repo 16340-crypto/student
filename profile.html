@@ -14,37 +14,129 @@
         }
 
         body{
-            background:linear-gradient(135deg,#dd191d,#ff8c42);
+            /* ท้องฟ้าธีมอาณาจักรสีชมพูอมแดงเข้มลึกลับ */
+            background: linear-gradient(135deg, #2b001a, #6b0f24, #b81d3d, #ff5e7e);
             color:white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
 
+        /* --- พระจันทร์สีเลือด (Blood Moon) --- */
+        .blood-moon {
+            position: fixed;
+            top: 90px;
+            right: 8%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff3344, #990011);
+            border-radius: 50%;
+            box-shadow: 0 0 40px #ff1a35, 0 0 80px #ff5e7e;
+            z-index: 1;
+        }
+
+        /* --- เงาปราสาทและบ้านเมือง (Kingdom Silhouette) --- */
+        .kingdom-bg {
+            position: fixed;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            min-width: 1000px;
+            height: auto;
+            opacity: 0.3;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* --- ต้นไม้ใบหญ้าเคลื่อนไหว (Swaying Trees & Grass) --- */
+        .nature-layer {
+            position: fixed;
+            bottom: 75px;
+            width: 100%;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .spooky-tree {
+            position: absolute;
+            bottom: 0;
+            fill: #1a0208;
+            transform-origin: bottom center;
+            animation: sway 4s ease-in-out infinite alternate;
+        }
+        .tree-left { left: 5%; width: 180px; }
+        .tree-right { right: 5%; width: 220px; animation-duration: 5s; }
+
+        .grass-blade {
+            position: absolute;
+            bottom: -5px;
+            fill: #100105;
+            transform-origin: bottom center;
+            animation: sway 2.5s ease-in-out infinite alternate;
+        }
+        .grass1 { left: 25%; width: 60px; }
+        .grass2 { right: 30%; width: 80px; animation-duration: 3s; }
+
+        @keyframes sway {
+            0% { transform: rotate(-2deg) skewX(-1deg); }
+            100% { transform: rotate(3deg) skewX(2deg); }
+        }
+
+        /* พื้นดินของอาณาจักร */
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 85px;
+            background: linear-gradient(to top, #100105, #24050d);
+            border-top: 3px solid #420612;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
+            z-index: 4;
+        }
+
+        /* เมนู */
         nav{
-            background:rgba(0,0,0,0.25);
+            background: rgba(26, 2, 8, 0.8);
             padding:15px;
             text-align:center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #ff5e7e;
+            backdrop-filter: blur(5px);
         }
 
         nav a{
-            color:white;
+            color: #ffb7d5; /* สีชมพูอ่อนพาสเทล */
             text-decoration:none;
             margin:0 15px;
             font-size:18px;
             font-weight:bold;
+            transition: 0.3s;
         }
 
         nav a:hover{
-            color:yellow;
+            color: #ffe600; /* ไฮไลท์สีเหลืองทอง */
+            text-shadow: 0 0 10px #ff3344;
         }
 
+        /* กล่องเนื้อหา */
         .container{
-            width:80%;
-            max-width:800px;
-            margin:40px auto;
-            background:rgba(255,255,255,0.15);
-            padding:30px;
+            width:85%;
+            max-width:700px;
+            margin:50px auto 140px auto;
+            background: rgba(26, 2, 8, 0.75); /* ปรับพื้นหลังกล่องให้เข้ากับธีมเข้ม */
+            padding:35px;
             border-radius:20px;
             text-align:center;
-            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(255, 94, 126, 0.2);
+            border: 2px solid #ff5e7e;
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 10;
         }
 
         img{
@@ -52,13 +144,15 @@
             height:200px;
             border-radius:50%;
             object-fit:cover;
-            border:5px solid white;
+            border: 5px solid #ff5e7e;
             margin-bottom:20px;
+            box-shadow: 0 0 20px rgba(255, 94, 126, 0.5);
         }
 
         h1{
             margin-bottom:20px;
             color:#ffe600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         table{
@@ -69,8 +163,9 @@
 
         td{
             padding:12px;
-            border-bottom:1px solid rgba(255,255,255,0.3);
+            border-bottom:1px solid rgba(255, 94, 126, 0.3);
             font-size:20px;
+            text-shadow: 1px 1px 2px #000;
         }
 
         td:first-child{
@@ -79,31 +174,75 @@
             color:#ffe600;
         }
 
+        /* ปุ่มกด */
         .btn{
             display:inline-block;
             margin-top:25px;
-            padding:12px 25px;
-            background:white;
-            color:#dd191d;
+            padding:12px 35px;
+            background: linear-gradient(90deg, #ff5e7e, #b81d3d);
+            color: white;
             text-decoration:none;
             border-radius:30px;
             font-weight:bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .btn:hover{
-            background:#ffe600;
+            background: #ffe600;
+            color: #2b001a;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ffe600;
         }
 
         footer{
             text-align:center;
             padding:20px;
-            margin-top:40px;
-            background:rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 20;
+            background: #100105;
+            color: #8c7379;
         }
     </style>
 </head>
 
 <body>
+
+<div class="blood-moon"></div>
+
+<svg class="kingdom-bg" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,250 L0,180 L30,160 L60,180 L60,250 
+             M60,250 L60,150 L80,130 L100,150 L100,250 
+             M100,250 L100,190 L140,190 L140,250
+             M140,250 L140,110 L160,80 L180,110 L180,250 
+             M220,250 L220,130 L250,90 L280,130 L280,250
+             M350,250 L350,70 L380,30 L410,70 L410,250
+             M410,250 L410,120 L480,120 L480,250
+             M480,250 L480,50 L500,20 L550,20 L570,50 L570,250
+             M570,250 L570,140 L620,100 L670,140 L670,250
+             M720,250 L720,160 L760,130 L800,160 L800,250
+             M850,250 L850,180 L900,180 L900,250
+             M900,250 L900,140 L930,110 L960,140 L960,250 M960,250 L1000,200 L1000,250" fill="#14020a"/>
+    <circle cx="80" cy="160" r="3" fill="#ffe600" opacity="0.6"/>
+    <circle cx="160" cy="120" r="3" fill="#ffe600" opacity="0.6"/>
+    <circle cx="525" cy="60" r="4" fill="#ffe600" opacity="0.7"/>
+    <circle cx="645" cy="150" r="3" fill="#ffe600" opacity="0.6"/>
+</svg>
+
+<div class="nature-layer">
+    <svg class="spooky-tree tree-left" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,120 L50,60 M50,85 L30,70 M30,70 L15,75 M50,75 L70,55 M70,55 L85,60 M50,60 L40,35 M40,35 L25,25 M40,35 L55,15" stroke="#1a0208" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <svg class="spooky-tree tree-right" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,120 L50,50 M50,80 L25,60 M25,60 L10,65 M50,65 L75,45 M75,45 L90,50 M50,50 L40,25 M40,25 L55,10" stroke="#100105" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <svg class="grass-blade grass1" viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,80 Q20,30 40,10 Q25,40 25,80 M25,80 Q30,20 45,5 Q35,35 35,80" fill="#100105"/>
+    </svg>
+    <svg class="grass-blade grass2" viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40,80 Q30,30 10,10 Q20,40 20,80 M25,80 Q15,15 2,0 Q10,30 12,80" fill="#14020a"/>
+    </svg>
+</div>
 
 <nav>
     <a href="index.html">หน้าแรก</a>
@@ -140,6 +279,8 @@
     <a href="index.html" class="btn">กลับหน้าหลัก</a>
 
 </div>
+
+<div class="ground"></div>
 
 <footer>
     © 2026 Portfolio | นาย ณฐกร วิชัยชะนะ
