@@ -3,43 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ผลงาน</title>
+<title>🔥 ผลงาน 🔥</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Sarabun,sans-serif;}
-body{background:linear-gradient(135deg,#dd191d,#ff8c42);color:white;}
-nav{background:rgba(0,0,0,.25);padding:15px;text-align:center;}
-nav a{color:white;text-decoration:none;margin:0 15px;font-weight:bold;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Sarabun,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#3b0000,#8b0000,#ff4500,#ffae00);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* เมนู */
+nav{
+    background:rgba(0,0,0,.35);
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffd700;
+    text-shadow:0 0 15px orange;
+}
+
+/* กล่อง */
 .container{
-width:80%;
-max-width:900px;
-margin:40px auto;
-padding:30px;
-background:rgba(255,255,255,.15);
-border-radius:20px;
-text-align:center;
+    width:80%;
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:rgba(255,255,255,.12);
+    border:3px solid orange;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 35px orange;
+    animation:floatBox 4s ease-in-out infinite;
 }
-h1{margin-bottom:20px;}
+
+@keyframes floatBox{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* หัวข้อ */
+h1{
+    color:#ffd700;
+    margin-bottom:25px;
+    font-size:42px;
+    text-shadow:0 0 10px orange;
+    animation:glow 1s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px orange;
+    }
+    to{
+        text-shadow:0 0 30px yellow;
+    }
+}
+
+/* รายการผลงาน */
 ul{
-list-style:none;
-font-size:20px;
+    list-style:none;
+    font-size:22px;
 }
-li{margin:15px;}
+
+li{
+    margin:18px;
+    transition:.4s;
+}
+
+li:hover{
+    transform:scale(1.08);
+    color:#ffe600;
+    text-shadow:0 0 15px yellow;
+}
+
+/* ปุ่ม */
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:white;
-color:#dd191d;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 28px;
+    background:#ffd700;
+    color:#8b0000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
 }
+
+.btn:hover{
+    transform:scale(1.1);
+    background:white;
+}
+
+/* Footer */
 footer{
-text-align:center;
-padding:20px;
-margin-top:40px;
-background:rgba(0,0,0,.25);
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    background:rgba(0,0,0,.35);
+}
+
+/* เปลวไฟ */
+.fire{
+    position:fixed;
+    bottom:-30px;
+    font-size:28px;
+    animation:fireUp linear infinite;
+    pointer-events:none;
+    z-index:999;
+}
+
+@keyframes fireUp{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+/* มังกร */
+.dragon{
+    position:fixed;
+    top:120px;
+    left:-180px;
+    font-size:80px;
+    z-index:998;
+    animation:dragonFly 15s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes dragonFly{
+    0%{
+        left:-180px;
+        transform:translateY(0);
+    }
+    25%{
+        transform:translateY(-40px);
+    }
+    50%{
+        transform:translateY(20px);
+    }
+    75%{
+        transform:translateY(-30px);
+    }
+    100%{
+        left:110%;
+        transform:translateY(0);
+    }
 }
 </style>
 </head>
@@ -47,30 +184,73 @@ background:rgba(0,0,0,.25);
 <body>
 
 <nav>
-<a href="index.html">หน้าแรก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">ประวัติการศึกษา</a>
-<a href="award.html">ผลงาน</a>
-<a href="contact.html">ติดต่อ</a>
+<a href="index.html">🏠 หน้าแรก</a>
+<a href="profile.html">👤 ประวัติส่วนตัว</a>
+<a href="education.html">🎓 ประวัติการศึกษา</a>
+<a href="award.html">🏆 ผลงาน</a>
+<a href="contact.html">📞 ติดต่อ</a>
 </nav>
+
+<!-- มังกรบิน -->
+<div class="dragon">🐉🔥</div>
 
 <div class="container">
 
-<h1>ผลงาน</h1>
+<h1>🔥 ผลงาน 🔥</h1>
 
 <ul>
 <li>🏆 ได้รับเกียรติบัตร..................................</li>
 <li>🥇 เข้าร่วมการแข่งขัน..................................</li>
 <li>📜 ผ่านการอบรม..................................</li>
+<li>💻 พัฒนาเว็บไซต์ Portfolio ด้วย HTML และ CSS</li>
+<li>🎨 ออกแบบหน้าเว็บด้วยธีมโทนร้อนและแอนิเมชัน</li>
 </ul>
 
-<a href="index.html" class="btn">กลับหน้าหลัก</a>
+<a href="index.html" class="btn">
+🏠 กลับหน้าหลัก
+</a>
 
 </div>
 
 <footer>
-© 2026 Portfolio | นาย ณฐกร วิชัยชะนะ
+🔥 © 2026 Portfolio | นาย ณฐกร วิชัยชะนะ 🔥
 </footer>
+<script>
+
+/* 🔥 สร้างเปลวไฟ */
+function createFire(){
+
+    let fire = document.createElement("div");
+
+    fire.className = "fire";
+    fire.innerHTML = "🔥";
+
+    fire.style.left = Math.random() * 100 + "vw";
+    fire.style.animationDuration = (2 + Math.random() * 3) + "s";
+    fire.style.opacity = Math.random();
+    fire.style.fontSize = (20 + Math.random() * 35) + "px";
+
+    document.body.appendChild(fire);
+
+    setTimeout(()=>{
+        fire.remove();
+    },5000);
+
+}
+
+setInterval(createFire,120);
+
+
+/* 🐉 เปลี่ยนความสูงของมังกรเป็นระยะ */
+const dragon = document.querySelector(".dragon");
+
+setInterval(()=>{
+
+    dragon.style.top = (80 + Math.random()*250) + "px";
+
+},3000);
+
+</script>
 
 </body>
 </html>
